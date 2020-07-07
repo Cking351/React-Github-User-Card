@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import axios from "axios";
+import GitCard from './Components/GitCard'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  state = {
+    users: {}
+  }
+
+  componentDidMount() {
+    axios.get('https://api.github.com/users/Cking351')
+    .then(response => {
+      this.setState({
+        users: response.data
+      })
+    })
+  }
+
+
+
+
+
+  render() {
+    return (
+      <div>
+        <h1>GitHub User</h1>
+        <GitCard data={this.state.users} />
+      </div>
+    )
+  }
 }
 
 export default App;
