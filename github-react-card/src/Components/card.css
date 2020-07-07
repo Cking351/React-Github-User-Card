@@ -1,0 +1,16 @@
+.container {
+    background-color: #e76f51;
+    max-height: 30%;
+    max-width: 30%;
+}
+
+.container img {
+    margin-left: 36%;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.container button {
+    background-color: #264653;
+    color: #e9c46a;
+}
